@@ -1,0 +1,13 @@
+{{#if foundUser}}
+    <h2>Welcome, {{ foundUser.username }}!</h2>
+    <p>This is your profile page my friend!</p>
+    <button>
+    <a href="/profile/">Reload the page</a>
+    </button>
+{{else}}
+    <p>Still no logged in user, sorry!</p>
+{{/if}}
+
+{{#if
+    errorMessage}}<p class="error">{{errorMessage}}</p>
+{{/if}}

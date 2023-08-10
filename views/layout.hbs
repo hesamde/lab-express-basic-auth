@@ -1,19 +1,46 @@
-<!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{title}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
+    <header>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/main">Main</a>
+        </li>
+
+        {{#if loggedIn}}
+                <li>
+                  <a href="/profile">Profile</a>
+                </li>
+
+                <li>
+                  <a href="/private">Private</a>
+                </li>
+
+                <li>
+                  <form
+                    action="/logout" method="post">
+                    <button type="submit">Log out</button>
+                  </form>
+                </li>
+        {{else}}
+              <li>
+                <a href="/sign-up">Sign up</a>
+              </li>
+              <li>
+              <a href="/login">Log in</a>
+            </li>
+        {{/if}}
+      </ul>
+    </header>
 
     {{{body}}}
-
-    <script src="/js/script.js"></script>
-  </body>
-
-</html>
